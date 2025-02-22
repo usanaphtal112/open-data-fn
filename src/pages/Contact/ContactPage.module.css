@@ -1,0 +1,121 @@
+
+.contactPage {
+    padding-top: 80px;
+  }
+  
+  .contactHeader {
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+  
+  .contactHeader h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .contactHeader p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .contactContent {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+  }
+  
+  .contactGrid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+  }
+  
+  .contactInfo {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contactInfo h2 {
+    color: #2c3e50;
+    margin-bottom: 2rem;
+  }
+  
+  .infoItem {
+    margin-bottom: 2rem;
+  }
+  
+  .infoItem h3 {
+    color: #3498db;
+    margin-bottom: 0.5rem;
+  }
+  
+  .infoItem p {
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .contactForm {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contactForm h2 {
+    color: #2c3e50;
+    margin-bottom: 2rem;
+  }
+  
+  .formGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .formGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+  }
+  
+  .formGroup input,
+  .formGroup textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .formGroup textarea {
+    resize: vertical;
+  }
+  
+  .submitButton {
+    background-color: #3498db;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submitButton:hover {
+    background-color: #2980b9;
+  }
+  
+  @media (max-width: 768px) {
+    .contactGrid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }

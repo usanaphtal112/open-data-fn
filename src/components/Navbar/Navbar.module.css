@@ -1,0 +1,324 @@
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Top Bar Styles */
+.topBar {
+  background: #2c3e50;
+  color: white;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.topBarContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topBarLeft {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.topBarLeft a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.topBarRight {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.topBarRight a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.topBarRight a:hover {
+  color: #3498db;
+}
+
+.languageSelect {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* Main Navigation Styles */
+.mainNav {
+  background: white;
+  padding: 1rem 0;
+}
+
+.navContent {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #2c3e50;
+  white-space: nowrap;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.logo strong {
+  color: #3498db;
+}
+
+/* Search Bar Styles */
+.searchBar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  max-width: 700px;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.categorySelect {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-right: 1px solid #e1e1e1;
+  background: #f8f9fa;
+  color: #2c3e50;
+  font-weight: 500;
+  min-width: 150px;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: none;
+  font-size: 1rem;
+}
+
+.searchButton {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.searchButton:hover {
+  background: #2980b9;
+}
+
+/* Navigation Links Styles */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.primaryLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navLink {
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.navLink:hover {
+  color: #3498db;
+}
+
+.arrow {
+  font-size: 0.8rem;
+}
+
+/* Dropdown Styles */
+.dropdownContainer {
+  position: relative;
+}
+
+.servicesDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+}
+
+.servicesDropdown a {
+  display: block;
+  padding: 0.5rem 1.5rem;
+  color: #2c3e50;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.servicesDropdown a:hover {
+  background: #f8f9fa;
+  color: #3498db;
+}
+
+/* Auth Buttons Styles */
+.authButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.loginButton, .registerButton {
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.loginButton {
+  color: #3498db;
+  border: 2px solid #3498db;
+}
+
+.loginButton:hover {
+  background: #3498db;
+  color: white;
+}
+
+.registerButton {
+  background: #3498db;
+  color: white;
+}
+
+.registerButton:hover {
+  background: #2980b9;
+}
+
+/* Mobile Menu Button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 2px;
+  background-color: #2c3e50;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 1200px) {
+  .searchBar {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 992px) {
+  .topBarLeft {
+    display: none;
+  }
+  
+  .navContent {
+    justify-content: space-between;
+  }
+
+  .searchBar {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navLinks {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .navLinks.active {
+    display: flex;
+  }
+
+  .primaryLinks {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .authButtons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .loginButton, .registerButton {
+    text-align: center;
+  }
+
+  .servicesDropdown {
+    position: static;
+    box-shadow: none;
+    margin: 0.5rem 0;
+    padding: 0;
+  }
+
+  .servicesDropdown a {
+    padding: 0.5rem 1rem;
+  }
+}
