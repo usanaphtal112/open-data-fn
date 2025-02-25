@@ -1,0 +1,24 @@
+import axios from 'axios';
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+export const registerUser = async (userData) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/auth/register/`, userData);
+    return response.data; 
+  } catch (error) {
+    if (error.response) {
+      // other respones
+      switch (error.response.status) {
+        case 400:
+          throw new Error('Bad Request: Please check your input data.');
+        case 409:
+          throw new Error('Conflict: User already exists.');
+        default:
+          throw new Error('Registration failed. Please try again.');
+      }
+    } else {
+      throw new Error('Network error. Please check your connection.');
+    }
+  }
+};
