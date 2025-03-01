@@ -38,7 +38,7 @@ Before you begin, ensure you have the following installed:
 
 ## Project Structure
 ```
-📦 diversedatahub-frontend
+📦 opendata-fn
  ┣ 📂 src/
  ┃ ┣ 📂 assets/           # Static assets (images, fonts, etc.)
  ┃ ┣ 📂 components/       # Reusable UI components
@@ -79,7 +79,6 @@ Before you begin, ensure you have the following installed:
  ┃ │   │   ┣ 📜 restaurants.jsx # Restaurant API calls
  ┃ │   │   ┣ 📜 hotels.jsx    # Hotels API calls
  ┃ │   │   └ 📜 ...
- ┃ │   └ 📜 index.jsx     # Main exports
  ┃ ┣ 📂 utils/            # Utility functions
  ┃ │   ┣ 📜 helpers.jsx   # Helper functions
  ┃ │   ┣ 📜 errorHandlers.jsx # Error handling utilities
