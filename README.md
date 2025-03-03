@@ -38,39 +38,134 @@ Before you begin, ensure you have the following installed:
 
 ## Project Structure
 ```
-📦 diversedatahub-frontend
- ┣ 📂 src
- ┃ ┣ 📂 components  # Reusable UI components
- ┃ ┣ 📂 pages       # Page components (Dashboard, Listings, Details, etc.)
- ┃ ┣ 📂 services    # API interaction logic
- ┃ ┣ 📂 hooks       # Custom React hooks
- ┃ ┣ 📂 styles      # Global styles
- ┃ ┣ 📜 main.jsx    # Entry point
- ┃ ┣ 📜 App.jsx     # Main App component
- ┣ 📜 .env          # Environment variables
- ┣ 📜 vite.config.js # Vite configuration
- ┣ 📜 package.json   # Dependencies & scripts
- ┗ 📜 README.md      # Project documentation
+📦 opendata-fn
+ ┣ 📂 src/
+ ┃ ┣ 📂 assets/           # Static assets (images, fonts, etc.)
+ ┃ ┣ 📂 components/       # Reusable UI components
+ ┃ │   ┣ 📂 Common/        # Common, shared components
+ ┃ │   │   ┣ 📜 Button.jsx
+ ┃ │   │   ┣ 📜 Input.jsx
+ ┃ │   │   └ 📜 ...
+ ┃ │   ┣ 📂 FeatureA/      # Components specific to Feature A
+ ┃ │   │   ┣ 📜 FeatureAComponent.jsx
+ ┃ │   │   ┣ 📜 FeatureAForm.jsx
+ ┃ │   │   └ 📜 ...
+ ┃ │   ┣ 📂 FeatureB/      # Components specific to Feature B
+ ┃ │   │   ┣ 📜 FeatureBList.jsx
+ ┃ │   │   ┣ 📜 FeatureBDetails.jsx
+ ┃ │   │   └ 📜 ...
+ ┃ │   └ 📜 ...
+ ┃ ┣ 📂 contexts/         # React Contexts for state management
+ ┃ │   ┣ 📜 AuthContext.jsx
+ ┃ │   ┣ 📜 ThemeContext.jsx
+ ┃ │   └ 📜 ...
+ ┃ ┣ 📂 hooks/            # Custom React hooks
+ ┃ │   ┣ 📜 useFetch.jsx
+ ┃ │   ┣ 📜 useForm.jsx
+ ┃ │   └ 📜 ...
+ ┃ ┣ 📂 pages/            # Page-level components (route handlers)
+ ┃ │   ┣ 📜 HomePage.jsx
+ ┃ │   ┣ 📜 LoginPage.jsx
+ ┃ │   ┣ 📜 FeatureAPage.jsx
+ ┃ │   ┣ 📜 FeatureBPage.jsx
+ ┃ │   └ 📜 ...
+ ┃ ┣ 📂 services/         # API service layer
+ ┃ │   ┣ 📂 api/          # API infrastructure
+ ┃ │   │   ┣ 📜 client.jsx    # Core axios client with interceptors
+ ┃ │   │   ┣ 📜 endpoints.jsx # Constants for all API endpoints
+ ┃ │   │   └ 📜 index.jsx     # Exports from the api directory
+ ┃ │   ┣ 📂 resources/    # Resource-specific API calls
+ ┃ │   │   ┣ 📜 auth.jsx      # Authentication API calls
+ ┃ │   │   ┣ 📜 restaurants.jsx # Restaurant API calls
+ ┃ │   │   ┣ 📜 hotels.jsx    # Hotels API calls
+ ┃ │   │   └ 📜 ...
+ ┃ ┣ 📂 utils/            # Utility functions
+ ┃ │   ┣ 📜 helpers.jsx   # Helper functions
+ ┃ │   ┣ 📜 errorHandlers.jsx # Error handling utilities
+ ┃ │   ┣ 📜 validation.jsx # Validation functions
+ ┃ │   └ 📜 ...
+ ┃ ┣ 📜 App.jsx           # Main application component
+ ┃ ┣ 📜 main.jsx          # Entry point
+ ┃ ┣ 📜 index.css         # Global styles
+ ┣ 📂 public/              # Public assets (static files served directly)
+ ┃ └ 📜 index.html
+ ┣ 📜 .env                 # Environment variables
+ ┣ 📜 package.json
+ ┣ 📜 vite.config.js
+ ┗ 📜 README.md
 ```
 
-## API Integration
-This frontend interacts with a Django REST API. The `services/api.jsx` file handles API requests.
+## API Service Layer Organization
 
-Example API call using **Axios**:
+The services directory is organized to handle API calls efficiently:
+
+### 1. API Infrastructure (`services/api/`)
+
+- **client.jsx**: Sets up the Axios instance with:
+  - Base URL configuration
+  - Request interceptors for authentication
+  - Response interceptors for global error handling
+  - Default headers and timeout settings
+
+- **endpoints.jsx**: Centralizes all API endpoint URLs as constants for:
+  - Consistent usage across the application
+  - Easy updates when endpoints change
+  - Support for dynamic parameters (e.g., `DETAIL: (id) => `/resource/${id}/`)
+
+### 2. Resource-Specific Services (`services/resources/`)
+
+Each file corresponds to a specific data domain and implements functions for:
+- Fetching lists of resources
+- Getting details for a single resource
+- Creating/updating/deleting resources
+- Other specific operations for that resource type
+
+Example (conceptual, not implementation):
 ```javascript
-import axios from 'axios';
+// restaurants.jsx
+export const getRestaurants = async (params) => { /* implementation */ };
+export const getRestaurantById = async (id) => { /* implementation */ };
+export const createRestaurant = async (data) => { /* implementation */ };
+```
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+## Error Handling Strategy
 
-export const fetchListings = async (category) => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/listings/?category=${category}`);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching listings:", error);
-    return [];
+Error handling is centralized in the `utils/errorHandlers.jsx` file:
+
+### 1. Centralized Error Processing
+
+The API client's response interceptor processes all error responses:
+- Standardizes error format across the application
+- Handles common HTTP status codes (400, 401, 403, 404, etc.)
+- Extracts meaningful error messages from the API response
+- Manages authentication failures (e.g., token expiration)
+
+### 2. Error Display Methods
+
+Errors are displayed to users through:
+- Toast notifications for general errors
+- Form-specific error messages for validation errors
+- Global error boundaries for unexpected errors
+- Custom error pages for specific error types (404, 500, etc.)
+
+### 3. Error Usage in Components
+
+Components can handle errors from API calls:
+```javascript
+// Example usage (conceptual)
+try {
+  const data = await getRestaurants();
+  // Handle success case
+} catch (error) {
+  // Access standardized error properties
+  if (error.statusCode === 404) {
+    // Show not found message
   }
-};
+  
+  // For form errors
+  const fieldErrors = formatFormErrors(error);
+  // Update form state with errors
+}
 ```
 
 ## Styling with Bootstrap
@@ -110,4 +205,3 @@ netlify deploy
 
 ## License
 This project is licensed under the MIT License.
-
