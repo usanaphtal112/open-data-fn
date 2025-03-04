@@ -22,3 +22,19 @@ export const registerUser = async (userData) => {
     }
   }
 };
+
+export const loginUser = async (userData) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/auth/login/`, userData);
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      if (error.response.status === 401) {
+        throw new Error("Invalid email or password.");
+      }
+      throw new Error(error.response.data.message || "Login failed.");
+    } else {
+      throw new Error("Network error. Please try again.");
+    }
+  }
+};
