@@ -64,11 +64,17 @@ Before you begin, ensure you have the following installed:
  ┃ │   ┣ 📜 useForm.jsx
  ┃ │   └ 📜 ...
  ┃ ┣ 📂 pages/            # Page-level components (route handlers)
- ┃ │   ┣ 📜 HomePage.jsx
- ┃ │   ┣ 📜 LoginPage.jsx
- ┃ │   ┣ 📜 FeatureAPage.jsx
- ┃ │   ┣ 📜 FeatureBPage.jsx
- ┃ │   └ 📜 ...
+ ┃ │   ┣ 📂 Home/
+ ┃ │   ┃    ┣ 📜 HomePage.jsx
+ ┃ │   ┃    ┣ 📜 HomePage.module.css
+ ┃ │   ┣ 📂 Login/
+ ┃ │   ┃    ┣ 📜 LoginPage.jsx
+ ┃ │   ┃    ┣ 📜 LoginPage.module.css
+ ┃ │   ┣ 📂 FeatureA/
+ ┃ │   ┃    ┣ 📜 FeatureAPage.jsx
+ ┃ │   ┃    ┣ 📜 FeatureAPage.module.css
+ ┃ │   ┣ 📂 FeatureB/
+ ┃ │   └ 📂 ...
  ┃ ┣ 📂 services/         # API service layer
  ┃ │   ┣ 📂 api/          # API infrastructure
  ┃ │   │   ┣ 📜 client.jsx    # Core axios client with interceptors
