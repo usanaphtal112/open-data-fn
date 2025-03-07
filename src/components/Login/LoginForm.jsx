@@ -38,47 +38,44 @@ const LoginForm = () => {
   };
 
   return (
-    <>
-      <div className={styles.overlay}></div>
-      <div className={styles.formContainer}>
-        <h2 className={styles.formTitle}>Login</h2>
-        <form onSubmit={handleSubmit}>
-          <div className={styles.formGroup}>
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
+    <div className={styles.formContainer}>
+      <h2 className={styles.formTitle}>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <div className={styles.formGroup}>
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-          <div className={styles.formGroup}>
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
+        <div className={styles.formGroup}>
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-          {error && <div className={styles.alert} style={{ color: "red" }}>{error}</div>}
+        {error && <div className={styles.alert} style={{ color: "red" }}>{error}</div>}
 
-          <button 
-            type="submit" 
-            className={styles.submitButton} 
-            disabled={isLoading || !formData.email || !formData.password} // Prevents empty submission
-          >
-            {isLoading ? "Logging in..." : "Login"}
-          </button>
-        </form>
-      </div>
-    </>
+        <button 
+          type="submit" 
+          className={styles.submitButton} 
+          disabled={isLoading || !formData.email || !formData.password}
+        >
+          {isLoading ? "Logging in..." : "Login"}
+        </button>
+      </form>
+    </div>
   );
 };
 

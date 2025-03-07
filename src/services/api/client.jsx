@@ -30,7 +30,7 @@ export const loginUser = async (userData) => {
   } catch (error) {
     if (error.response) {
       if (error.response.status === 401) {
-        throw new Error("Invalid email or password.");
+        throw new Error("Invalid Credentials");
       }
       throw new Error(error.response.data.message || "Login failed.");
     } else {

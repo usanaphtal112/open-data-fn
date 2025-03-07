@@ -1,34 +1,22 @@
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
-  z-index: 900;
-}
-
 .formContainer {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 500px;
+  max-width: 600px;
   width: 90%;
+  margin: 20px auto;
   padding: 30px;
-  background: #fff;
+  background: #E1F5FE;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  z-index: 1001;
 }
-
 .formTitle {
-  font-size: 26px;
+  font-size: 46px;
   font-weight: bold;
   color: #333;
   text-align: center;
-  background: linear-gradient(to right, #007bff, #00c6ff);
+  background: linear-gradient(to right, #12b8aa, #00c6ff);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 2px #5104df;
+  margin-top: 20px;
   margin-bottom: 15px;
   position: relative;
 }
@@ -37,9 +25,9 @@
   content: "";
   width: 100px;
   height: 3px;
-  background: #007bff;
+  background: #0581f5;
   display: block;
-  margin: 8px auto 0;
+  margin: 10px auto 0;
   border-radius: 2px;
 }
 
@@ -50,24 +38,26 @@
 .formGroup label {
   display: block;
   font-weight: 600;
-  color: #555;
+  color: #0D47A1;
   margin-bottom: 5px;
 }
 
 .formGroup input {
   width: 100%;
   padding: 10px;
+  /* color: #0D47A1; */
+  color: #333333;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 14px;
   background: white;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .formGroup input:focus {
-  border-color: #007bff;
+  border-color: #12e659;
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 255, 13, 0.5);
+  box-shadow: 0 0 5px rgba(20, 5, 7, 0.932);
 }
 
 .alert {
@@ -80,13 +70,15 @@
 
 .submitButton {
   width: 100%;
-  padding: 12px;
+  padding: 15px;
   background: #007bff;
   color: white;
+  
+  margin-bottom: 20px;
   font-size: 16px;
   font-weight: bold;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
