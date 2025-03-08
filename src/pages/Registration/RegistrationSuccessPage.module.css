@@ -1,0 +1,68 @@
+/* src/pages/Registration/RegistrationSuccessPage.module.css */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #1e2146;
+    padding: 2rem;
+  }
+  
+  .card {
+    background-color: #1a1d3f;
+    border-radius: 12px;
+    padding: 3rem;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .successIcon {
+    width: 80px;
+    height: 80px;
+    background-color: #10b981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 2.5rem;
+    color: white;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+  
+  .message {
+    color: #d8dae5;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  
+  .submessage {
+    color: #a0a3bd;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+  
+  .loginButton {
+    padding: 0.875rem 2rem;
+    background-color: #635dff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .loginButton:hover {
+    background-color: #5249d6;
+  }

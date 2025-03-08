@@ -1,40 +1,47 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.rwandadataplatform.org/api';
 
-export const registerUser = async (userData) => {
-  try {
-    const response = await axios.post(`${API_BASE_URL}/auth/register/`, userData);
-    return response.data; 
-  } catch (error) {
-    if (error.response) {
-      // other respones
-      switch (error.response.status) {
-        case 400:
-          throw new Error('Bad Request: Please check your input data.');
-        case 409:
-          throw new Error('Conflict: User already exists.');
-        default:
-          throw new Error('Registration failed. Please try again.');
-      }
-    } else {
-      throw new Error('Network error. Please check your connection.');
-    }
-  }
-};
+const apiClient = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
-export const loginUser = async (userData) => {
-  try {
-    const response = await axios.post(`${API_BASE_URL}/auth/login/`, userData);
-    return response.data;
-  } catch (error) {
-    if (error.response) {
-      if (error.response.status === 401) {
-        throw new Error("Invalid Credentials");
-      }
-      throw new Error(error.response.data.message || "Login failed.");
-    } else {
-      throw new Error("Network error. Please try again.");
+// Request interceptor for adding auth token
+apiClient.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('authToken');
+    if (token) {
+      config.headers['Authorization'] = `Bearer ${token}`;
     }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
   }
-};
+);
+
+// Response interceptor for handling common errors
+apiClient.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    // Handle 401 Unauthorized responses
+    if (error.response && error.response.status === 401) {
+      // Clear auth token and redirect to login
+      localStorage.removeItem('authToken');
+      
+      // If not already on login page
+      if (window.location.pathname !== '/login') {
+        window.location.href = '/login';
+      }
+    }
+    
+    return Promise.reject(error);
+  }
+);
+
+export default apiClient;

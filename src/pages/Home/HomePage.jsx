@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Registration from '../../components/Registration/RegisterForm';
 import styles from './HomePage.module.css';
 
 const HomePage = () => {
