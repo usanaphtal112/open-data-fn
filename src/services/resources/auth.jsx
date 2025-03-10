@@ -1,6 +1,7 @@
-
 import apiClient from '../api/client';
 import { endpoints } from '../api/endpoints';
+import { isTokenExpired, getAccessToken, storeAccessToken, clearAccessToken } from './tokenManager'
+
 
 /**
  * Register a new user
@@ -25,9 +26,9 @@ export const loginUser = async (credentials) => {
   try {
     const response = await apiClient.post(endpoints.auth.login, credentials);
     
-    // Store auth token in localStorage
+    // Store auth token in sessionStorage with obfuscation
     if (response.data.access_token) {
-      localStorage.setItem('authToken', response.data.access_token);
+      storeAccessToken(response.data.access_token);
     }
     
     return response.data;
@@ -36,11 +37,25 @@ export const loginUser = async (credentials) => {
   }
 };
 
+
+
 /**
  * Logout the current user
+ * @returns {Promise} - Promise resolving to logout response
  */
-export const logoutUser = () => {
-  localStorage.removeItem('authToken');
+export const logoutUser = async () => {
+  try {
+    const response = await apiClient.post(endpoints.auth.logout);
+    
+    if (response.status === 200) {
+        clearAccessToken();
+      }
+    
+    return response.data;
+  } catch (error) {
+    console.error('Error during logout:', error);
+    throw error;
+  }
 };
 
 /**
@@ -48,5 +63,5 @@ export const logoutUser = () => {
  * @returns {Boolean} - Authentication status
  */
 export const isAuthenticated = () => {
-  return !!localStorage.getItem('authToken');
+  return !!getAccessToken() && !isTokenExpired();
 };

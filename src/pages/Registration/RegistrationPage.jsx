@@ -2,9 +2,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './RegistrationPage.module.css';
 import { registerUser } from '../../services/resources/auth';
+import { useTheme } from '../../contexts/ThemeContext';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const RegistrationPage = () => {
   const navigate = useNavigate();
+  const { theme } = useTheme();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -137,7 +140,7 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${styles[theme]}`}>
       <div className={styles.leftPanel}>
         <div className={styles.statsContainer}>
           {/* This is where the 3D character and stats from the image would go */}
@@ -182,6 +185,7 @@ const RegistrationPage = () => {
                   value={formData.first_name}
                   onChange={handleChange}
                   className={errors.first_name ? styles.inputError : ''}
+                  placeholder="Enter your first name"
                 />
                 {errors.first_name && <div className={styles.errorText}>{errors.first_name}</div>}
               </div>
@@ -195,6 +199,7 @@ const RegistrationPage = () => {
                   value={formData.middle_name}
                   onChange={handleChange}
                   className={errors.middle_name ? styles.inputError : ''}
+                  placeholder="Enter your middle name"
                 />
                 {errors.middle_name && <div className={styles.errorText}>{errors.middle_name}</div>}
               </div>
@@ -210,6 +215,7 @@ const RegistrationPage = () => {
                   value={formData.last_name}
                   onChange={handleChange}
                   className={errors.last_name ? styles.inputError : ''}
+                  placeholder="Enter your last name"
                 />
                 {errors.last_name && <div className={styles.errorText}>{errors.last_name}</div>}
               </div>
@@ -223,6 +229,7 @@ const RegistrationPage = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className={errors.email ? styles.inputError : ''}
+                  placeholder="Enter your email address"
                 />
                 {errors.email && <div className={styles.errorText}>{errors.email}</div>}
               </div>
@@ -239,6 +246,7 @@ const RegistrationPage = () => {
                     value={formData.password}
                     onChange={handleChange}
                     className={errors.password ? styles.inputError : ''}
+                    placeholder="Enter your password"
                   />
                   <i
                       className={`bi ${showPassword ? "bi-eye" : "bi-eye-slash"} ${styles.eyeIcon}`}
@@ -260,6 +268,7 @@ const RegistrationPage = () => {
                     value={formData.confirm_password}
                     onChange={handleChange}
                     className={errors.confirm_password ? styles.inputError : ''}
+                    placeholder="Repeat your password"
                   />
                   <i
                       className={`bi ${showConfirmPassword ? "bi-eye" : "bi-eye-slash"} ${styles.eyeIcon}`}
@@ -294,20 +303,20 @@ const RegistrationPage = () => {
             
             <div className={styles.socialButtons}>
               <button className={`${styles.socialButton} ${styles.facebookButton}`}>
-              <i className="bi bi-facebook"></i>
+              <FaFacebook size={24} />
                 <span className={styles.facebookIcon}></span>
               </button>
               <button className={`${styles.socialButton} ${styles.twitterButton}`}>
-              <i className="bi bi-twitter"></i>
+              <FaTwitter size={24} />
                 <span className={styles.twitterIcon}></span>
               </button>
-              <button className={`${styles.socialButton} ${styles.githubButton}`}>
-              <i className="bi bi-github"></i>
-                <span className={styles.githubIcon}></span>
+              <button className={`${styles.socialButton} ${styles.linkedinButton}`}>
+              <FaLinkedin size={24} />
+                <span className={styles.linkedinIcon}></span>
               </button>
-              <button className={`${styles.socialButton} ${styles.googleButton}`}>
-              <i className="bi bi-google"></i>
-                <span className={styles.googleIcon}></span>
+              <button className={`${styles.socialButton} ${styles.instagramButton}`}>
+              <FaInstagram size={24} />
+                <span className={styles.instagramIcon}></span>
               </button>
             </div>
           </div>

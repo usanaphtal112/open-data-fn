@@ -1,7 +1,339 @@
-.pageContainer {
+.container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    padding-top: 80px;
+  }
+  
+  .leftPanel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    background-color: var(--bg-secondary);
+  }
+  
+  .formContainer {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .logo {
+    padding-top: 30px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logoImage {
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-color);
+    border-radius: 10px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+  
+  .subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+  
+  .form {
+    width: 100%;
+  }
+  
+  .formGroup {
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+  
+  .formGroup label {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    display: block;
+  }
+  
+  .formGroup input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  .formGroup input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+  }
+  
+  .inputError {
+    border-color: #f04438 !important;
+  }
+  
+  .errorText {
+    color: #f04438;
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+  }
+  
+  .passwordHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .forgotPassword {
+    color: var(--accent-color);
+    font-size: 0.875rem;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .forgotPassword:hover {
+    text-decoration: underline;
+  }
+  
+  .passwordContainer {
+    position: relative;
+    width: 100%;
+  }
+  
+  .passwordContainer input {
+    width: 100%;
+    padding-right: 2.5rem;
+  }
+  
+  .eyeIcon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+  }
+  
+  .eyeIcon:hover {
+    color: var(--text-primary);
+  }
+  
+  .rememberMeContainer {
+    display: flex;
+    margin-bottom: 1.5rem;
+  }
+  
+  .checkboxContainer {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.875rem;
+    user-select: none;
+    color: var(--text-secondary);
+  }
+  
+  .checkboxContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    height: 18px;
+    width: 18px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .checkboxContainer:hover input ~ .checkmark {
+    background-color: var(--dropdown-hover);
+  }
+  
+  .checkboxContainer input:checked ~ .checkmark {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .checkboxContainer input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .checkboxContainer .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  
+  .formActions {
+    margin-top: 2rem;
+  }
+  
+  .loginButton {
+    width: 100%;
+    padding: 0.875rem;
+    background-color: var(--accent-color);
+    color: var(--button-text);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .loginButton:hover {
+    background-color: var(--accent-color-dark);
+  }
+  
+  .loginButton:disabled {
+    background-color: var(--text-secondary);
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .registerLink {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-secondary);
+  }
+  
+  .registerLink a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .registerLink a:hover {
+    text-decoration: underline;
+  }
+  
+  .serverError {
+    background-color: rgba(240, 68, 56, 0.1);
+    border: 1px solid rgba(240, 68, 56, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    color: #f04438;
+  }
+  
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--text-secondary);
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .divider span {
+    padding: 0 1rem;
+  }
+  
+  .socialButtons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .socialButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .socialButton:hover {
+    background-color: var(--dropdown-hover);
+  }
+  
+  .rightPanel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+  }
+  
+  .illustrationContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .illustration {
+    width: 100%;
+    max-width: 800px;
+    opacity: 0.3;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+  }
+  
+  .illustration img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+    
+    .rightPanel {
+      display: none; /* Hide illustration on mobile */
+    }
+    
+    .leftPanel {
+      padding: 1.5rem;
+    }
   }
