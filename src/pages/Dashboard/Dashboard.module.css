@@ -1,0 +1,449 @@
+.dashboardContainer {
+    max-width: 1400px;
+    margin: 100px auto 40px;
+    padding: 0 20px;
+  }
+  
+  .dashboardHeader {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .dashboardHeader h1 {
+    margin: 0 0 10px 0;
+    font-size: 2rem;
+    color: var(--text-primary);
+  }
+  
+  .dashboardHeader p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+  }
+  
+  .dashboardContent {
+    display: flex;
+    gap: 30px;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+  }
+  
+  .userInfo {
+    padding: 25px;
+    text-align: center;
+    background: var(--accent-color);
+    color: white;
+  }
+  
+  .userAvatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .userAvatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .userName {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .userEmail {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  
+  .dashboardNav {
+    padding: 20px 0;
+  }
+  
+  .navButton {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 12px 25px;
+    font-size: 1rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .navButton:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .navButton.active {
+    background: var(--accent-color-light);
+    color: var(--accent-color);
+    border-left: 4px solid var(--accent-color);
+  }
+  
+  .sidebarFooter {
+    padding: 20px 25px;
+    border-top: 1px solid var(--border-color);
+  }
+  
+  .homeLink {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
+  
+  .homeLink:hover {
+    color: var(--accent-color);
+  }
+  
+  /* Main Content Styles */
+  .mainContent {
+    flex: 1;
+    background: var(--bg-card);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    padding: 30px;
+    min-height: 600px;
+  }
+  
+  /* Overview Tab */
+  .statsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .statCard {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .statCard h3 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
+  
+  .statValue {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--accent-color);
+  }
+  
+  .recentActivity {
+    margin-top: 30px;
+  }
+  
+  .recentActivity h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+  }
+  
+  .activityList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .activityItem {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .activityItem:last-child {
+    border-bottom: none;
+  }
+  
+  .activityDate {
+    flex-shrink: 0;
+    width: 100px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  
+  .activityText {
+    flex: 1;
+    color: var(--text-primary);
+  }
+  
+  /* Favorites Tab */
+  .favoritesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .favoriteCard {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .favoriteCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .favoriteImage {
+    height: 160px;
+    overflow: hidden;
+  }
+  
+  .favoriteImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .favoriteInfo {
+    padding: 15px;
+  }
+  
+  .favoriteInfo h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+  }
+  
+  .favoriteInfo p {
+    margin: 0 0 10px 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  
+  .favoriteRating {
+    color: #f8b400;
+    font-size: 0.9rem;
+  }
+  
+  /* Reviews Tab */
+  .reviewsList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .reviewCard {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .reviewHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .reviewHeader h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+  }
+  
+  .reviewRating {
+    color: #f8b400;
+    font-size: 1.1rem;
+  }
+  
+  .reviewDate {
+    margin: 0 0 15px 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+  
+  .reviewContent {
+    margin: 0;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+  
+  /* Settings Tab */
+  .settingsForm {
+    margin-bottom: 30px;
+  }
+  
+  .formGroup {
+    margin-bottom: 20px;
+  }
+  
+  .formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  
+  .formInput {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    transition: border-color 0.3s ease;
+  }
+  
+  .formInput:focus {
+    outline: none;
+    border-color: var(--accent-color);
+  }
+  
+  .formActions {
+    margin-top: 25px;
+  }
+  
+  .submitButton {
+    padding: 12px 24px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submitButton:hover {
+    background: var(--accent-color-dark);
+  }
+  
+  .passwordSection {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+  }
+  
+  .passwordSection h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+  }
+  
+  /* Empty States */
+  .emptyState {
+    padding: 30px;
+    text-align: center;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    font-size: 1.1rem;
+  }
+  
+  .actionLink {
+    display: block;
+    margin-top: 15px;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  /* Loading & Error States */
+  .loadingContainer, .errorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+  }
+  
+  .loading, .error {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+  }
+  
+  .error {
+    color: var(--error-color);
+  }
+  
+  .retryButton {
+    padding: 10px 20px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .retryButton:hover {
+    background: var(--accent-color-dark);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .dashboardContent {
+      flex-direction: column;
+    }
+    
+    .sidebar {
+      width: 100%;
+    }
+    
+    .userInfo {
+      padding: 20px;
+    }
+    
+    .userAvatar {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .statsContainer {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .dashboardContainer {
+      margin-top: 80px;
+      padding: 0 15px;
+    }
+    
+    .mainContent {
+      padding: 20px;
+    }
+    
+    .statsContainer {
+      grid-template-columns: 1fr;
+    }
+    
+    .reviewHeader {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  }

@@ -1,0 +1,74 @@
+/* Theme Variables */
+
+:root {
+  /* Light Theme (Default) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #2c3e50;
+  --theme-toggle: #e6e6e6;
+  --text-secondary: #666666;
+  --accent-color: #3498db;
+  --accent-color-dark: #2980b9;
+  --border-color: #e1e1e1;
+  --card-bg: #ffffff;
+  --navbar-bg: #ffffff;
+  --footer-bg: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  --footer-text: #ffffff;
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --top-bar-bg: #2c3e50;
+  --top-bar-text: #ffffff;
+  --hero-bg: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  --hero-text: #ffffff;
+  --button-text: #ffffff;
+  --input-bg: #ffffff;
+  --dropdown-bg: #ffffff;
+  --dropdown-text: #2c3e50;
+  --dropdown-hover: #f8f9fa;
+}
+
+.dark-mode {
+  /* Dark Theme */
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --text-primary: #e6e6e6;
+  --theme-toggle: #e6e6e6;
+  --text-secondary: #b0b0b0;
+  --accent-color: #4a89dc;
+  --accent-color-dark: #3a70b8;
+  --border-color: #2a2a4a;
+  --card-bg: #242444;
+  --navbar-bg: #1a1a2e;
+  --footer-bg: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+  --footer-text: #e6e6e6;
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  --top-bar-bg: #0f3460;
+  --top-bar-text: #e6e6e6;
+  --hero-bg: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+  --hero-text: #e6e6e6;
+  --button-text: #e6e6e6;
+  --input-bg: #242444;
+  --dropdown-bg: #242444;
+  --dropdown-text: #e6e6e6;
+  --dropdown-hover: #16213e;
+}
+
+/* Smooth transition between themes */
+body,
+button,
+input,
+select,
+textarea,
+a,
+.navbar,
+.footer,
+.card,
+.hero,
+.dropdown,
+.search-bar {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}

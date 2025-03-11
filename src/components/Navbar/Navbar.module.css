@@ -3,12 +3,12 @@
   position: fixed;
   top: 0;
   z-index: 1000;
-  background: white;
+  background: var(--navbar-bg);
   transition: all 0.3s ease;
 }
 
 .scrolled {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
 }
 
 .container {
@@ -19,9 +19,9 @@
 
 /* Top Bar Styles */
 .topBar {
-  background: #2c3e50;
-  color: white;
-  padding: 0.5rem 0;
+  background: var(--top-bar-bg);
+  color: var(--top-bar-text);
+  padding: 0.6rem 0;
   font-size: 0.9rem;
 }
 
@@ -37,11 +37,21 @@
 }
 
 .topBarLeft a {
-  color: white;
+  color: var(--top-bar-text);
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.topBarLeft a:hover {
+  opacity: 0.8;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
 }
 
 .topBarRight {
@@ -50,28 +60,58 @@
   align-items: center;
 }
 
-.topBarRight a {
-  color: white;
+.topBarLink {
+  color: var(--top-bar-text);
   text-decoration: none;
   transition: color 0.3s ease;
+  position: relative;
 }
 
-.topBarRight a:hover {
-  color: #3498db;
+.topBarLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.topBarLink:hover::after {
+  width: 100%;
+}
+
+.languageSelector {
+  position: relative;
 }
 
 .languageSelect {
   background: transparent;
-  color: white;
+  color: var(--top-bar-text);
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
+  appearance: none;
+  padding-right: 1.5rem;
+  cursor: pointer;
+}
+
+.selectArrow {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
 }
 
 /* Main Navigation Styles */
 .mainNav {
-  background: white;
+  background: var(--navbar-bg);
   padding: 1rem 0;
+  transition: all 0.3s ease;
 }
 
 .navContent {
@@ -86,8 +126,13 @@
   gap: 0.5rem;
   text-decoration: none;
   font-size: 1.5rem;
-  color: #2c3e50;
+  color: var(--text-primary);
   white-space: nowrap;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.02);
 }
 
 .logo img {
@@ -96,7 +141,7 @@
 }
 
 .logo strong {
-  color: #3498db;
+  color: var(--accent-color);
 }
 
 /* Search Bar Styles */
@@ -105,19 +150,31 @@
   display: flex;
   align-items: center;
   max-width: 700px;
-  border: 2px solid #3498db;
+  border: 2px solid var(--accent-color);
   border-radius: 8px;
   overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.searchBar:focus-within {
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+}
+
+.categorySelectWrapper {
+  position: relative;
+  border-right: 1px solid var(--border-color);
 }
 
 .categorySelect {
   padding: 0.8rem 1rem;
   border: none;
-  border-right: 1px solid #e1e1e1;
-  background: #f8f9fa;
-  color: #2c3e50;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   font-weight: 500;
   min-width: 150px;
+  appearance: none;
+  padding-right: 2rem;
+  cursor: pointer;
 }
 
 .searchInput {
@@ -125,20 +182,34 @@
   padding: 0.8rem 1rem;
   border: none;
   font-size: 1rem;
+  background: var(--input-bg);
+  color: var(--text-primary);
+}
+
+.searchInput:focus {
+  outline: none;
 }
 
 .searchButton {
-  background: #3498db;
-  color: white;
+  background: var(--accent-color);
+  color: var(--button-text);
   border: none;
-  padding: 0.8rem 2rem;
+  padding: 0.8rem 1.5rem;
   cursor: pointer;
   font-weight: 500;
   transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .searchButton:hover {
-  background: #2980b9;
+  background: var(--accent-color-dark);
+}
+
+.searchIcon {
+  width: 16px;
+  height: 16px;
 }
 
 /* Navigation Links Styles */
@@ -154,7 +225,7 @@
 }
 
 .navLink {
-  color: #2c3e50;
+  color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 0;
@@ -166,14 +237,32 @@
   border: none;
   cursor: pointer;
   font-size: 1rem;
+  position: relative;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after,
+.navLink:focus::after {
+  width: 100%;
 }
 
 .navLink:hover {
-  color: #3498db;
+  color: var(--accent-color);
 }
 
-.arrow {
-  font-size: 0.8rem;
+.dropdownArrow {
+  width: 14px;
+  height: 14px;
 }
 
 /* Dropdown Styles */
@@ -185,25 +274,97 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background: white;
+  background: var(--dropdown-bg);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  min-width: 200px;
-  padding: 1rem 0;
+  box-shadow: var(--box-shadow);
+  min-width: 220px;
+  padding: 0.5rem 0;
   margin-top: 0.5rem;
+  z-index: 1001;
+  animation: fadeIn 0.2s ease-out;
+  overflow: hidden;
 }
 
 .servicesDropdown a {
   display: block;
-  padding: 0.5rem 1.5rem;
-  color: #2c3e50;
+  padding: 0.7rem 1.5rem;
+  color: var(--dropdown-text);
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .servicesDropdown a:hover {
-  background: #f8f9fa;
-  color: #3498db;
+  background: var(--dropdown-hover);
+  color: var(--accent-color);
+  padding-left: 1.8rem;
+}
+
+.servicesDropdown a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.servicesDropdown a:hover::before {
+  width: 4px;
+}
+
+/* User Menu Styles */
+.userMenu {
+  display: flex;
+  align-items: center;
+}
+
+.userButton {
+  color: var(--text-primary);
+}
+
+.userIcon {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+}
+
+/* Logout Button Style */
+.logoutButton {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  color: var(--dropdown-text);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.logoutButton:hover {
+  background: var(--dropdown-hover);
+  color: var(--accent-color);
+  padding-left: 1.8rem;
+}
+
+.logoutButton::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.logoutButton:hover::before {
+  width: 4px;
 }
 
 /* Auth Buttons Styles */
@@ -218,45 +379,64 @@
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 .loginButton {
-  color: #3498db;
-  border: 2px solid #3498db;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  background: transparent;
 }
 
 .loginButton:hover {
-  background: #3498db;
-  color: white;
+  background: rgba(52, 152, 219, 0.1);
+  transform: translateY(-2px);
 }
 
 .registerButton {
-  background: #3498db;
-  color: white;
+  background: var(--accent-color);
+  color: var(--button-text);
 }
 
 .registerButton:hover {
-  background: #2980b9;
+  background: var(--accent-color-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Mobile Menu Button */
 .hamburger {
   display: none;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0.5rem;
+  z-index: 1010;
 }
 
 .hamburger span {
   width: 25px;
   height: 2px;
-  background-color: #2c3e50;
+  background-color: var(--text-primary);
   transition: all 0.3s ease;
+  border-radius: 2px;
 }
 
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
 @media (max-width: 1200px) {
   .searchBar {
     max-width: 400px;
@@ -271,54 +451,122 @@
   .navContent {
     justify-content: space-between;
   }
-
+  
   .searchBar {
     display: none;
   }
-
+  
   .hamburger {
     display: flex;
   }
-
+  
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  
   .navLinks {
     display: none;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 140px;
     left: 0;
     right: 0;
-    background: white;
-    padding: 1rem;
+    bottom: 0;
+    background: var(--navbar-bg);
+    padding: 2rem;
     flex-direction: column;
-    align-items: stretch;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    align-items: flex-start;
+    box-shadow: var(--box-shadow);
+    overflow-y: auto;
+    z-index: 1005;
   }
-
+  
   .navLinks.active {
     display: flex;
+    animation: slideIn 0.3s ease-out;
   }
-
+  
   .primaryLinks {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1.5rem;
+    width: 100%;
   }
-
+  
+  .navLink {
+    font-size: 1.2rem;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.7rem 0;
+  }
+  
+  .navLink::after {
+    display: none;
+  }
+  
   .authButtons {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 2rem;
   }
-
+  
   .loginButton, .registerButton {
+    width: 100%;
     text-align: center;
+    padding: 1rem;
   }
-
+  
   .servicesDropdown {
     position: static;
     box-shadow: none;
-    margin: 0.5rem 0;
-    padding: 0;
+    margin: 0.5rem 0 1rem;
+    padding: 0 0 0 1rem;
+    border-left: 2px solid var(--accent-color);
+    min-width: 100%;
+    animation: none;
   }
+  
+  .dropdownContainer {
+    width: 100%;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
 
-  .servicesDropdown a {
-    padding: 0.5rem 1rem;
+@media (max-width: 576px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .topBarRight {
+    gap: 1rem;
+  }
+  
+  .topBarLink {
+    font-size: 0.8rem;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  .logo img {
+    height: 32px;
   }
 }
