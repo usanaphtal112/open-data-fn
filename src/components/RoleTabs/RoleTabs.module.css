@@ -1,0 +1,26 @@
+.dashboardNav {
+    padding: 20px 0;
+  }
+    
+  .navButton {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 12px 25px;
+    font-size: 1rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+    
+  .navButton:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+    
+  .navButton.active {
+    background: var(--accent-color-light);
+    color: var(--accent-color);
+    border-left: 4px solid var(--accent-color);
+  }

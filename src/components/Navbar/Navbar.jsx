@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import ThemeToggle from '../Common/ThemeToggle';
@@ -13,23 +13,108 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { theme } = useTheme();
   const navigate = useNavigate();
-
-  // Services data - moved outside component for better performance
-  const services = [
-    'Restaurants & Dining',
-    'Hotels & Accommodation',
-    'Healthcare Services',
-    'Beauty & Wellness',
-    'Home & Living',
-    'Education & Training',
-    'Wedding Services',
-    'Real Estate',
-    'Transportation'
+  const dropdownRef = useRef(null);
+  
+  // Optimized service categories with path mappings
+  const serviceCategories = [
+    {
+      name: "Food & Dining",
+      items: [
+        { name: "Restaurants & Cafes", path: "/restaurants" },
+        { name: "Catering Services", path: "/catering" },
+        { name: "Bakeries", path: "/bakeries" },
+        { name: "Food Delivery", path: "/food-delivery" }
+      ]
+    },
+    {
+      name: "Accommodation",
+      items: [
+        { name: "Hotels & Resorts", path: "/hotels" },
+        { name: "Vacation Rentals", path: "/vacation-rentals" },
+        { name: "PG & Hostels", path: "/pg-hostels" },
+        { name: "Serviced Apartments", path: "/serviced-apartments" }
+      ]
+    },
+    {
+      name: "Health & Wellness",
+      items: [
+        { name: "Hospitals & Clinics", path: "/hospitals" },
+        { name: "Dentists", path: "/dentists" },
+        { name: "Beauty Spas", path: "/beauty-spas" },
+        { name: "Fitness & Gyms", path: "/gyms" }
+      ]
+    },
+    {
+      name: "Home & Living",
+      items: [
+        { name: "Home Décor", path: "/home-decor" },
+        { name: "Contractors", path: "/contractors" },
+        { name: "Interior Designers", path: "/interior-designers" },
+        { name: "Packers & Movers", path: "/packers-movers" }
+      ]
+    },
+    {
+      name: "Occasions & Events",
+      items: [
+        { name: "Wedding Planning", path: "/wedding-planning" },
+        { name: "Event Organizers", path: "/event-organizers" },
+        { name: "Banquet Halls", path: "/banquet-halls" },
+        { name: "Catering", path: "/catering-events" }
+      ]
+    },
+    {
+      name: "Education & Training",
+      items: [
+        { name: "Schools & Colleges", path: "/schools-colleges" },
+        { name: "Coaching Centers", path: "/coaching" },
+        { name: "Driving Schools", path: "/driving-schools" },
+        { name: "Online Courses", path: "/online-courses" }
+      ]
+    },
+    {
+      name: "Property & Real Estate",
+      items: [
+        { name: "Estate Agents", path: "/estate-agents" },
+        { name: "Property Dealers", path: "/property-dealers" },
+        { name: "Rent & Hire", path: "/rent-hire" },
+        { name: "Commercial Spaces", path: "/commercial-spaces" }
+      ]
+    },
+    {
+      name: "Pet Services",
+      items: [
+        { name: "Pet Shops", path: "/pet-shops" },
+        { name: "Veterinary Clinics", path: "/veterinary" },
+        { name: "Pet Grooming", path: "/pet-grooming" },
+        { name: "Pet Boarding", path: "/pet-boarding" }
+      ]
+    },
+    {
+      name: "Services",
+      items: [
+        { name: "Courier Services", path: "/courier-services" },
+        { name: "Financial Services", path: "/financial-services" },
+        { name: "Legal Services", path: "/legal-services" },
+        { name: "Loans & Insurance", path: "/loans-insurance" }
+      ]
+    }
   ];
+
+  // Flatten service array for search dropdown
+  const allServices = serviceCategories.flatMap(category => 
+    category.items.map(item => ({ name: item.name, path: item.path }))
+  );
 
   // Optimized scroll handler with useCallback
   const handleScroll = useCallback(() => {
     setIsScrolled(window.scrollY > 50);
+  }, []);
+
+  // Handle clicks outside dropdown
+  const handleClickOutside = useCallback((event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setShowServicesDropdown(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -39,9 +124,15 @@ const Navbar = () => {
     // Add scroll listener
     window.addEventListener('scroll', handleScroll);
     
+    // Add click outside listener
+    document.addEventListener('mousedown', handleClickOutside);
+    
     // Clean up
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [handleScroll, handleClickOutside]);
 
   const handleLogout = async () => {
     try {
@@ -110,9 +201,9 @@ const Navbar = () => {
           <div className={styles.searchBar}>
             <div className={styles.categorySelectWrapper}>
               <select className={styles.categorySelect} aria-label="Select category">
-                <option>All Categories</option>
-                {services.map((service, index) => (
-                  <option key={index}>{service}</option>
+                <option value="">All Categories</option>
+                {allServices.map((service, index) => (
+                  <option key={index} value={service.path}>{service.name}</option>
                 ))}
               </select>
               <svg className={styles.selectArrow} aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -135,7 +226,7 @@ const Navbar = () => {
           </div>
 
           <button
-            className={styles.hamburger}
+            className={`${styles.hamburger} ${isOpen ? styles.active : ''}`}
             onClick={toggleMobileMenu}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
@@ -154,6 +245,7 @@ const Navbar = () => {
 
               <div
                 className={styles.dropdownContainer}
+                ref={dropdownRef}
                 onMouseEnter={() => setShowServicesDropdown(true)}
                 onMouseLeave={() => setShowServicesDropdown(false)}
               >
@@ -168,13 +260,39 @@ const Navbar = () => {
                     <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </button>
+                
                 {showServicesDropdown && (
-                  <div id="services-dropdown" className={styles.servicesDropdown}>
-                    {services.map((service, index) => (
-                      <Link key={index} to={`/services/${service.toLowerCase().replace(/\s+/g, '-')}`}>
-                        {service}
+                  <div id="services-dropdown" className={styles.megaMenu}>
+                    <div className={styles.megaMenuGrid}>
+                      {serviceCategories.map((category, categoryIndex) => (
+                        <div key={categoryIndex} className={styles.megaMenuCategory}>
+                          <h3 className={styles.megaMenuTitle}>{category.name}</h3>
+                          <ul className={styles.megaMenuList}>
+                            {category.items.map((item, itemIndex) => (
+                              <li key={itemIndex}>
+                                <Link to={item.path} className={styles.megaMenuLink}>
+                                  {item.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                          <Link to={`/categories/${category.name.toLowerCase().replace(/\s+/g, '-')}`} className={styles.viewAllLink}>
+                            View All <span aria-hidden="true">→</span>
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
+                    <div className={styles.megaMenuFooter}>
+                      <Link to="/all-services" className={styles.browseAllLink}>
+                        Browse All Services
                       </Link>
-                    ))}
+                      <Link to="/popular-services" className={styles.popularLink}>
+                        Popular Services
+                      </Link>
+                      <Link to="/new-services" className={styles.newLink}>
+                        New Services
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>

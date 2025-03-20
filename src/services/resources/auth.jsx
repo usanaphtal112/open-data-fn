@@ -37,8 +37,6 @@ export const loginUser = async (credentials) => {
   }
 };
 
-
-
 /**
  * Logout the current user
  * @returns {Promise} - Promise resolving to logout response

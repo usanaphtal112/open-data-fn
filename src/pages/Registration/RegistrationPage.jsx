@@ -99,7 +99,8 @@ const RegistrationPage = () => {
       
       // If we get here, registration was successful
       setLoading(false);
-      navigate('/registration-success');
+      localStorage.setItem('registrationSuccess', 'Registration successful! You can now log in.');
+      navigate('/login');
     } catch (error) {
       setLoading(false);
       

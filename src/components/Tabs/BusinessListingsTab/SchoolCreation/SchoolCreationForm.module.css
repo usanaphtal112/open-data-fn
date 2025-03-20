@@ -1,0 +1,507 @@
+/* SchoolCreationForm.module.css */
+
+.schoolCreationContainer {
+  padding: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.formTitle {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.formTitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 60px;
+  background: var(--accent-color);
+  border-radius: 3px;
+}
+
+.formCard {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.stepIndicator {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stepLabel {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.progressBar {
+  height: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: var(--bg-secondary);
+}
+
+.progressBar > div {
+  background: linear-gradient(to right, var(--accent-color), var(--accent-color-dark));
+  border-radius: 0.25rem;
+  transition: width 0.6s ease;
+}
+
+.formSection {
+  padding: 0.5rem 0 1rem;
+}
+
+.formSectionTitle {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.formActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.actionButton {
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form input styling */
+.formSection :global(.form-control),
+.formSection :global(.form-select) {
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.formSection :global(.form-control:focus),
+.formSection :global(.form-select:focus) {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.15);
+}
+
+.formSection :global(.form-control::placeholder) {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.formSection :global(.form-label) {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.formSection :global(.form-text) {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+/* Required field indicator */
+.formSection :global(.form-label::after) {
+  content: "*";
+  color: #dc3545;
+  margin-left: 4px;
+}
+
+/* Error state styling */
+.formSection :global(.is-invalid) {
+  border-color: #dc3545;
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.formSection :global(.invalid-feedback) {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
+}
+
+.formSection :global(.is-valid) {
+  border-color: var(--border-color);
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+/* Alumni form specific styles */
+.alumniEntry {
+  padding: 1rem;
+  background-color: var(--bg-secondary);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.alumniEntry:hover {
+  box-shadow: var(--box-shadow);
+}
+
+.removeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--bg-secondary);
+  color: var(--accent-color);
+  border: 1px dashed var(--accent-color);
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.addButton:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Error summary */
+.errorSummary {
+  background-color: rgba(220, 53, 69, 0.05);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  border-radius: 0.375rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.errorTitle {
+  color: #dc3545;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.errorList {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 0;
+  color: #dc3545;
+}
+
+/* Success animation */
+.successAlert {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* School type card for BusinessListingsTab */
+.businessTypeCard {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  text-align: center;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.businessTypeCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent-color);
+}
+
+.businessTypeCard:global(.card-body) {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Listing cards for BusinessListingsTab */
+.listingCard {
+  height: 100%;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  transition: all 0.3s ease;
+}
+
+.listingCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .formActions {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  
+  .actionButton {
+    width: 100%;
+  }
+}
+
+
+
+/* Step navigation styles */
+.stepNavigation {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.stepCircles {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 0.5rem;
+  padding: 0 1.5rem;
+}
+
+.stepCircles::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--border-color);
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.stepCircle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.activeStep {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+  transform: scale(1.1);
+}
+
+.completedStep {
+  background-color: var(--accent-color-dark);
+  border-color: var(--accent-color-dark);
+  color: white;
+}
+
+.stepLabels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.stepLabel {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: center;
+  transition: all 0.3s ease;
+  width: 12.5%; /* 100% / 8 steps */
+}
+
+.activeLabel {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* School selection dropdown styling */
+.schoolSelector {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem;
+  padding: 1rem;
+  background-color: var(--bg-secondary);
+}
+
+.schoolSelector select {
+  font-size: 1rem;
+  padding: 0.75rem;
+}
+
+/* Help text section */
+.helpText {
+  background-color: var(--bg-secondary);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-left: 4px solid var(--accent-color);
+}
+
+.helpText p {
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.helpText strong {
+  color: var(--text-primary);
+}
+
+.helpText a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.helpText a:hover {
+  text-decoration: underline;
+}
+
+/* Image upload styling */
+.imageUploadArea {
+  border: 2px dashed var(--border-color);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--bg-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.imageUploadArea:hover {
+  border-color: var(--accent-color);
+  background-color: rgba(52, 152, 219, 0.05);
+}
+
+.uploadIcon {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.imagePreviewContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.imagePreview {
+  position: relative;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  aspect-ratio: 1/1;
+}
+
+.imagePreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageActions {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.imageAction {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.imageAction:hover {
+  background-color: white;
+  transform: scale(1.1);
+}
+
+.deleteAction {
+  color: #dc3545;
+}
+
+.primaryAction {
+  color: var(--accent-color);
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .stepLabels {
+    display: none;
+  }
+  
+  .stepCircle {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  
+  .imagePreviewContainer {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .stepNavigation {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .stepCircles {
+    padding: 0 0.5rem;
+  }
+  
+  .stepCircle {
+    width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
+  }
+}

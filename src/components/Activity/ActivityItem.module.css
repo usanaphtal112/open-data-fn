@@ -1,0 +1,51 @@
+.activityItem {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .activityItem:last-child {
+    border-bottom: none;
+  }
+  
+  .activityIconContainer {
+    margin-right: 15px;
+  }
+  
+  .activityIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: var(--accent-color-light);
+    color: var(--accent-color);
+    border-radius: 50%;
+    font-size: 0.9rem;
+  }
+  
+  .activityContent {
+    flex: 1;
+  }
+  
+  .activityText {
+    color: var(--text-primary);
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+  
+  .activityMeta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.8rem;
+  }
+  
+  .activityDate {
+    color: var(--text-secondary);
+  }
+  
+  .activityBusiness {
+    color: var(--accent-color);
+    font-weight: 500;
+  }

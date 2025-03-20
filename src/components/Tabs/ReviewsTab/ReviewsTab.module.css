@@ -1,0 +1,472 @@
+.reviewsContainer {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    padding: 24px;
+  }
+  
+  .reviewsHeader {
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 16px;
+  }
+  
+  .reviewsHeader h2 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  
+  .reviewsHeader p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  .controlsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: center;
+  }
+  
+  .filterContainer {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .filterButton {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .filterButton.active {
+    background-color: var(--accent-color);
+    color: var(--button-text);
+    border-color: var(--accent-color);
+  }
+  
+  .sortContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .sortSelect {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+  }
+  
+  .sortOrderButton {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .businessSelectContainer {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .businessSelect {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    min-width: 200px;
+  }
+  
+  .loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 0;
+  }
+  
+  .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid var(--accent-color);
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .emptyState {
+    text-align: center;
+    padding: 48px 0;
+  }
+  
+  .emptyStateIcon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  
+  .emptyState h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+  
+  .emptyState p {
+    color: var(--text-secondary);
+  }
+  
+  .reviewsList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .reviewCard {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    background-color: var(--bg-primary);
+    position: relative;
+  }
+  
+  .pendingReview {
+    border-left: 4px solid #f39c12;
+  }
+  
+  .reviewHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  
+  .reviewMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .reviewUser, .businessInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .userAvatar, .businessLogo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .reviewRating {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+  }
+  
+  .star {
+    font-size: 1.2rem;
+    color: #d1d1d1;
+  }
+  
+  .star.filled {
+    color: #f1c40f;
+  }
+  
+  .reviewDate {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+  }
+  
+  .reviewBody {
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+  
+  .editedBadge {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  
+  .statusBadge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: white;
+  }
+  
+  .statusBadge.pending {
+    background-color: #f39c12;
+  }
+  
+  .statusBadge.approved {
+    background-color: #27ae60;
+  }
+  
+  .statusBadge.rejected {
+    background-color: #e74c3c;
+  }
+  
+  .businessResponse {
+    background-color: var(--bg-secondary);
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .responseHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .responseDate {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+  
+  .reviewActions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  
+  .actionButton {
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .actionButton:hover {
+    background-color: var(--bg-primary);
+  }
+  
+  .deleteButton {
+    color: #e74c3c;
+    border-color: #e74c3c;
+  }
+  
+  .deleteButton:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+  }
+  
+  .approveButton {
+    color: #27ae60;
+    border-color: #27ae60;
+  }
+  
+  .approveButton:hover {
+    background-color: rgba(39, 174, 96, 0.1);
+  }
+  
+  .rejectButton {
+    color: #e74c3c;
+    border-color: #e74c3c;
+  }
+  
+  .rejectButton:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  
+  .paginationButton {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.paginationButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.paginationButton:not(:disabled):hover {
+  background-color: var(--accent-color);
+  color: var(--button-text);
+  border-color: var(--accent-color);
+}
+
+.pageIndicator {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.errorMessage {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.editFormOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.editFormContainer {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 24px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: var(--box-shadow);
+}
+
+.editFormContainer h3 {
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.formGroup {
+  margin-bottom: 16px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.ratingInput {
+  display: flex;
+  gap: 8px;
+}
+
+.ratingLabel {
+  cursor: pointer;
+}
+
+.ratingLabel input {
+  display: none;
+}
+
+.textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.cancelButton {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--accent-color);
+  color: var(--button-text);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: var(--accent-color-dark);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .controlsContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filterContainer {
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  
+  .businessSelectContainer {
+    justify-content: flex-start;
+  }
+  
+  .businessSelect {
+    width: 100%;
+  }
+  
+  .reviewHeader {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

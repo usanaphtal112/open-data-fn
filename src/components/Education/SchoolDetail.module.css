@@ -1,0 +1,362 @@
+/* SchoolDetail.module.css */
+
+.schoolDetailContainer {
+    padding-top: 150px; /* Add padding to account for the fixed navbar */
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+  }
+  
+  /* Card styling */
+  .card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+  
+  .cardBody {
+    padding: 1.5rem;
+  }
+  
+  /* Header section */
+  .schoolHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  
+  .schoolTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .schoolCode {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Badges */
+  .badgeContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  
+  .badgeInfo {
+    background-color: #17a2b8;
+    color: #ffffff;
+  }
+  
+  .badgePrimary {
+    background-color: var(--accent-color);
+    color: #ffffff;
+  }
+  
+  .badgeSecondary {
+    background-color: #6c757d;
+    color: #ffffff;
+  }
+  
+  .badgeDark {
+    background-color: #343a40;
+    color: #ffffff;
+  }
+  
+  .badgeSuccess {
+    background-color: #28a745;
+    color: #ffffff;
+  }
+  
+  /* Location */
+  .locationContainer {
+    display: flex;
+    align-items: center;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+  
+  .locationIcon {
+    color: #dc3545;
+    margin-right: 0.5rem;
+  }
+  
+  /* Rating box */
+  .ratingBox {
+    background-color: var(--bg-secondary);
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+  
+  .ratingValue {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  
+  .ratingStars {
+    color: #ffc107;
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  .reviewCount {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  /* Fees */
+  .feesContainer {
+    margin-top: 1rem;
+  }
+  
+  .feesLabel {
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+  }
+  
+  .feesAmount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+  }
+  
+  /* Carousel */
+  .carousel {
+    overflow: hidden;
+    border-radius: 0.5rem;
+  }
+  
+  .carouselImage {
+    height: 400px;
+    object-fit: cover;
+    width: 100%;
+  }
+  
+  /* Tabs */
+  .tabs {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .tabItem {
+    color: var(--text-secondary);
+    background-color: transparent;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    position: relative;
+    font-weight: 500;
+  }
+  
+  .tabItemActive {
+    color: var(--accent-color);
+  }
+  
+  .tabItemActive::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent-color);
+  }
+  
+  /* Content Sections */
+  .sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    color: var(--text-primary);
+  }
+  
+  .subsectionTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  
+  /* List Groups */
+  .listGroup {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .listItem {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+  }
+  
+  .listItem:last-child {
+    border-bottom: none;
+  }
+  
+  /* Contact icons */
+  .contactIcon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  
+  .iconPrimary {
+    color: var(--accent-color);
+  }
+  
+  .iconSuccess {
+    color: #28a745;
+  }
+  
+  .iconInfo {
+    color: #17a2b8;
+  }
+  
+  .iconSecondary {
+    color: #6c757d;
+  }
+  
+  /* Social Media Links */
+  .socialLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  
+  .socialButton {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .buttonOutlinePrimary {
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+  }
+  
+  .buttonOutlinePrimary:hover {
+    background-color: var(--accent-color);
+    color: white;
+  }
+  
+  .buttonOutlineInfo {
+    border: 1px solid #17a2b8;
+    color: #17a2b8;
+  }
+  
+  .buttonOutlineInfo:hover {
+    background-color: #17a2b8;
+    color: white;
+  }
+  
+  .buttonOutlineDanger {
+    border: 1px solid #dc3545;
+    color: #dc3545;
+  }
+  
+  .buttonOutlineDanger:hover {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  /* Alert */
+  .alert {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .alertInfo {
+    background-color: rgba(23, 162, 184, 0.1);
+    border: 1px solid rgba(23, 162, 184, 0.2);
+    color: var(--text-primary);
+  }
+  
+  .alertWarning {
+    background-color: rgba(255, 193, 7, 0.1);
+    border: 1px solid rgba(255, 193, 7, 0.2);
+    color: var(--text-primary);
+  }
+  
+  .alertDanger {
+    background-color: rgba(220, 53, 69, 0.1);
+    border: 1px solid rgba(220, 53, 69, 0.2);
+    color: var(--text-primary);
+  }
+  
+  /* Back button */
+  .backButton {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 1.5rem;
+  }
+  
+  .backButton:hover {
+    background-color: var(--bg-secondary);
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .schoolDetailContainer {
+      padding-top: 140px;
+    }
+    
+    .schoolHeader {
+      flex-direction: column;
+    }
+    
+    .ratingBox {
+      margin-top: 1rem;
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .schoolDetailContainer {
+      padding-top: 130px;
+    }
+    
+    .schoolTitle {
+      font-size: 1.5rem;
+    }
+    
+    .carouselImage {
+      height: 250px;
+    }
+  }

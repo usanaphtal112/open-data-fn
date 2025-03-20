@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './LoginPage.module.css';
 import { loginUser } from '../../services/resources/auth';
@@ -18,6 +18,19 @@ const LoginPage = () => {
   
   const [errors, setErrors] = useState({});
   const [serverError, setServerError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState("");
+
+  useEffect(() => {
+    const message = localStorage.getItem("registrationSuccess");
+    if (message) {
+      setSuccessMessage(message);
+      localStorage.removeItem("registrationSuccess");
+
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 5000);
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -85,21 +98,24 @@ const LoginPage = () => {
         const { data, status } = error.response;
         
         if (status === 400 || status === 401) {
-          // Handle validation errors from backend
-          if (data.detail) {
-            setServerError(data.detail);
-          } else if (typeof data === 'string') {
-            setServerError(data);
-          } else {
-            // Format backend errors to match our error state structure
-            const backendErrors = {};
+          if (data.errors && Array.isArray(data.errors)) {
+            // Handle array-based errors
+            setServerError(data.errors[0]);
+            // Handle validation errors from backend
+            } else if (data.detail) {
+              setServerError(data.detail);
+            } else if (typeof data === 'string') {
+              setServerError(data);
+            } else {
+              // Format backend errors to match our error state structure
+              const backendErrors = {};
             
-            Object.keys(data).forEach(key => {
-              if (key === 'non_field_errors') {
-                setServerError(data[key][0]);
-              } else {
-                backendErrors[key] = data[key][0];
-              }
+              Object.keys(data).forEach(key => {
+                if (key === 'non_field_errors') {
+                  setServerError(data[key][0]);
+                } else {
+                  backendErrors[key] = data[key][0];
+                }
             });
             
             setErrors(prevErrors => ({ ...prevErrors, ...backendErrors }));
@@ -119,6 +135,11 @@ const LoginPage = () => {
 
   return (
     <div className={styles.container}>
+      {successMessage && (
+        <div className={`${styles.successMessage}`}>
+          {successMessage}
+        </div>
+      )}
       <div className={styles.leftPanel}>
         <div className={styles.formContainer}>
           <div className={styles.logo}>

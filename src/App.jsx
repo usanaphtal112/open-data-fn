@@ -13,6 +13,8 @@ import HomePage from './pages/Home/HomePage';
 import Dashboard from './pages/Dashboard/Dashboard';
 import AboutPage from './pages/About/AboutPage';
 import ContactPage from './pages/Contact/ContactPage';
+import SchoolsListPage from './pages/Schools/SchoolsListPage';
+import SchoolDetailPage  from './pages/Schools/SchoolDetailPage';
 
 // Import context providers
 import { AuthProvider } from './contexts/AuthContext';
@@ -128,6 +130,23 @@ function App() {
                     <div>User Profile Page</div> {/* Replace with actual profile component */}
                   </MainLayout>
                 </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/schools-colleges" 
+              element={
+                <MainLayout>
+                  <SchoolsListPage />
+                </MainLayout>
+              } 
+            />
+
+            <Route 
+              path="/schools-colleges/:id" 
+              element={
+                <MainLayout>
+                  <SchoolDetailPage />
+                </MainLayout>
               } 
             />
             

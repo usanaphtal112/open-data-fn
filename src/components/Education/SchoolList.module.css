@@ -1,0 +1,90 @@
+/* SchoolList.module.css */
+
+/* Add padding to the top to prevent navbar overlap */
+.schoolsListContainer {
+    padding-top: 140px; /* Adjust this value based on the height of your navbar */
+  }
+  
+  /* Theme-specific styles */
+  .darkMode {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+  
+  .darkCard {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+  }
+  
+  .darkMode .cardTitle {
+    color: var(--text-primary);
+  }
+  
+  .searchInput,
+  .selectFilter {
+    width: 100%;
+  }
+  
+  .darkMode .searchInput,
+  .darkMode .selectFilter {
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+  }
+  
+  .darkMode .searchInput::placeholder {
+    color: var(--text-secondary);
+  }
+  
+  .darkMode .textMuted {
+    color: var(--text-secondary) !important;
+  }
+  
+  .darkMode .btnOutlineLight:hover {
+    color: var(--text-primary);
+  }
+  
+  .schoolCard {
+    height: 100%;
+  }
+  
+  .darkPreview .card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+  }
+  
+  .schoolPreviewContainer {
+    position: absolute;
+    max-width: 300px;
+    z-index: 1000;
+  }
+  
+  .cardImgContainer {
+    height: 180px;
+    overflow: hidden;
+  }
+  
+  .schoolBadges {
+    margin-bottom: 1rem;
+  }
+  
+  /* Ensure the dropdown options have proper coloring in dark mode */
+  .darkMode .selectFilter option {
+    background-color: var(--dropdown-bg);
+    color: var(--text-primary);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 991px) {
+    .schoolsListContainer {
+      padding-top: 160px; /* Increase padding for smaller screens */
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .schoolsListContainer {
+      padding-top: 220px; /* Further increase padding for mobile */
+    }
+  }

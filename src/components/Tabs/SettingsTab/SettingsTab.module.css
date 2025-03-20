@@ -1,0 +1,161 @@
+.settingsContainer {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    padding: 24px;
+  }
+  
+  .settingsHeader {
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 16px;
+  }
+  
+  .settingsHeader h2 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  
+  .settingsHeader p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  .settingsSection {
+    margin-bottom: 32px;
+  }
+  
+  .settingsSection h3 {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+  }
+  
+  .formGroup {
+    margin-bottom: 20px;
+  }
+  
+  .formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  
+  .input, .select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input:focus, .select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+  }
+  
+  .checkboxGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .checkboxLabel {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-primary);
+  }
+  
+  .checkboxLabel input {
+    margin-right: 10px;
+  }
+  
+  .profileImagePreview {
+    margin-top: 12px;
+  }
+  
+  .previewImage {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+  }
+  
+  .submitButton {
+    background-color: var(--accent-color);
+    color: var(--button-text);
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submitButton:hover {
+    background-color: var(--accent-color-dark);
+  }
+  
+  .submitButton:disabled {
+    background-color: var(--border-color);
+    cursor: not-allowed;
+  }
+  
+  .successMessage {
+    background-color: rgba(39, 174, 96, 0.1);
+    color: #27ae60;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  
+  .errorMessage {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  
+  .dangerText {
+    color: #e74c3c;
+    margin-bottom: 12px;
+  }
+  
+  .dangerButton {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dangerButton:hover {
+    background-color: #c0392b;
+  }
+  
+  @media (min-width: 768px) {
+    .formGroup {
+      max-width: 600px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .settingsContainer {
+      padding: 16px;
+    }
+    
+    .settingsHeader h2 {
+      font-size: 1.3rem;
+    }
+  }

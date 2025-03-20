@@ -1,0 +1,310 @@
+.container {
+  padding: 1.5rem;
+  background-color: var(--bg-secondary);
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.content {
+  padding: 1.5rem 0;
+}
+
+/* Custom tab styling */
+.navTabs {
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+}
+
+.navLink {
+  color: var(--text-secondary);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  background: transparent;
+}
+
+.navLink:hover {
+  color: var(--accent-color);
+}
+
+.navLinkActive {
+  color: var(--accent-color);
+  border-bottom: 3px solid var(--accent-color);
+}
+
+/* Business type cards */
+.businessTypeCard {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 120px;
+}
+
+.businessTypeCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
+  border-color: var(--accent-color);
+}
+
+.businessTypeIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
+}
+
+.businessTypeName {
+  font-weight: 500;
+}
+
+/* Listing cards */
+.listingCard {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.listingCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  border-color: var(--accent-color);
+}
+
+.listingImage {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  position: relative;
+}
+
+.listingDefault {
+  height: 160px;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-color-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2.5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.listingContent {
+  padding: 1.25rem;
+}
+
+.listingTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.listingSubtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.listingInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.listingBadge {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  border-radius: 1rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.componentBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.componentBadge {
+  border-radius: 0.25rem;
+  font-weight: normal;
+  padding: 0.35rem 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.incompleteComponent {
+  position: relative;
+  overflow: hidden;
+}
+
+.incompleteComponent:hover {
+  background-color: #6c757d !important;
+  transform: translateY(-2px);
+}
+
+.incompleteComponent:hover::after {
+  content: "Complete this section";
+  position: absolute;
+  bottom: -1.5rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+}
+
+.listingActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.verificationBadgeTop {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(46, 204, 113, 0.9);
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.noVerification {
+  background: rgba(231, 76, 60, 0.9);
+}
+
+/* Empty state */
+.noListings {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.noListingsIcon {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+/* Loading & error states */
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.spinner {
+  color: var(--accent-color);
+}
+
+.errorAlert {
+  background-color: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  color: #e74c3c;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/* Button styling */
+.actionButton {
+  border: none;
+  padding: 0.625rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.editButton {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.625rem 1rem;
+  flex: 0 0 auto;
+}
+
+.editButton:hover {
+  background-color: var(--border-color);
+  transform: translateY(-2px);
+}
+
+.viewButton {
+  background-color: var(--accent-color);
+  color: var(--button-text);
+  position: relative;
+  padding: 0.625rem 1.25rem 0.625rem 1rem;
+  overflow: hidden;
+  flex: 1;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.viewButton:hover {
+  background-color: var(--accent-color-dark);
+  transform: translateY(-2px);
+}
+
+.viewIcon {
+  margin-right: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.arrowIcon {
+  position: absolute;
+  right: 0.75rem;
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+
+.viewButton:hover .viewIcon {
+  transform: translateX(-5px);
+}
+
+.viewButton:hover .arrowIcon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.secondaryButton {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.secondaryButton:hover {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
